@@ -13,5 +13,8 @@ export default {
     disabled: '#b18080',
     title: '#3c4859',
     caption: '#dbe0e9'
+  },
+  bg: {
+    loginBg: "#fff"
   }
 }

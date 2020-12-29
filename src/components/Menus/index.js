@@ -27,7 +27,7 @@ export default function Mobile() {
     <div className={classes.root}>
       <Hidden smUp>
         <div className={classes.rightMenu} onClick={toggleOpenMenu}>
-          <img src={menuIcon} alt="حرفینه" className={classes.menuIcon} />
+          <img src={menuIcon} className={classes.menuIcon} />
         </div>
       </Hidden>
       <div className={classes.centerMenu}>
@@ -40,7 +40,7 @@ export default function Mobile() {
             badgeContent={<Typography variant="h6">3</Typography>}
             color="primary"
           >
-            <img src={notificationImage} alt="حرفینه" />
+            <img src={notificationImage} />
           </Badge>
         </IconButton>
         <IconButton className={classes.notificationButton}>

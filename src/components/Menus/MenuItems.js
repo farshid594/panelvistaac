@@ -48,7 +48,6 @@ export default function MenuItems() {
               </Typography>
             </ListItemText>
           </ListItem>
-
           <ListItem
             button
             component={Link}
@@ -76,6 +75,34 @@ export default function MenuItems() {
               </Typography>
             </ListItemText>
           </ListItem>
+
+          <ListItem
+            button
+            component={Link}
+            to="/upload-profile"
+            style={{ marginTop: 10 }}
+          >
+            <ListItemIcon>
+              <img
+                src={path === '/upload-profile' ? activeMenu : inActiveMenu}
+                className={
+                  path === '/upload-profile'
+                    ? classes.ActiveMenuIcon
+                    : classes.inActiveMenuIcon
+                }
+              />
+            </ListItemIcon>
+            <ListItemText>
+              <Typography
+                variant="body2"
+                color={path === '/upload-profile' ? 'textPrimary' : 'textSecondary'}
+                className={classes.menuText}
+              >
+                آپلود پروفایل
+              </Typography>
+            </ListItemText>
+          </ListItem>
+
         </List>
       </div>
     </div>
