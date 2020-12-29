@@ -9,8 +9,9 @@ export default makeStyles((theme) => ({
   topDrawer: {
     width: '100%',
     display: 'flex',
-    paddingLeft: 12,
-    alignItems: 'center'
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginBottom: 20
   },
   ActiveMenuIcon: {
     width: 40,
@@ -26,7 +27,7 @@ export default makeStyles((theme) => ({
     padding: 6
   },
   drawerLogo: {
-    width: 130
+    width: 80
   },
   menuList: {
     marginTop: 30

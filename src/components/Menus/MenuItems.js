@@ -1,5 +1,6 @@
 import React from 'react'
 import {
+  Divider,
   List,
   ListItem,
   ListItemIcon,
@@ -22,6 +23,7 @@ export default function MenuItems() {
       <div className={classes.topDrawer}>
         <img src={drawerLogo} alt="shoesShop" className={classes.drawerLogo} />
       </div>
+      <Divider />
       <div className={classes.menuList}>
         <List>
           <ListItem button component={Link} to="/">
