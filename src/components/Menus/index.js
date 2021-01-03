@@ -17,11 +17,12 @@ import notificationImage from '../../assets/images/notification.svg'
 import MenuItems from './MenuItems'
 import SettingIcon from '@material-ui/icons/Settings'
 import { LoginContext } from '../../contexts/LoginContext'
+import { BaseApi } from '../../constants/Apis'
 
 export default function Mobile() {
   const classes = useStyles()
   const [open, setOpen] = useState(false)
-  let { name } = useContext(LoginContext)
+  let { name, logout, image } = useContext(LoginContext)
   const toggleOpenMenu = () => {
     setOpen(!open)
   }
@@ -33,7 +34,7 @@ export default function Mobile() {
         </div>
       </Hidden>
       <div className={classes.centerMenu}>
-        <img src={accImg} alt="harfine" className={classes.profileImage} />
+        <img src={image === "" ? accImg : BaseApi + image} alt="harfine" className={classes.profileImage} />
         <Typography variant="h6" color="textPrimary" className={classes.name}>
           {name}
         </Typography>
@@ -57,6 +58,7 @@ export default function Mobile() {
             color="secondary"
             size="small"
             className={classes.newReserveButton}
+            onClick={logout}
           >
             خروج
           </Button>
