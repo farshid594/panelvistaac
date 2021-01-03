@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import {
   SwipeableDrawer,
   Drawer,
@@ -16,10 +16,12 @@ import accImg from '../../assets/images/doctorProfile.png'
 import notificationImage from '../../assets/images/notification.svg'
 import MenuItems from './MenuItems'
 import SettingIcon from '@material-ui/icons/Settings'
+import { LoginContext } from '../../contexts/LoginContext'
 
 export default function Mobile() {
   const classes = useStyles()
   const [open, setOpen] = useState(false)
+  let { name } = useContext(LoginContext)
   const toggleOpenMenu = () => {
     setOpen(!open)
   }
@@ -33,7 +35,7 @@ export default function Mobile() {
       <div className={classes.centerMenu}>
         <img src={accImg} alt="harfine" className={classes.profileImage} />
         <Typography variant="h6" color="textPrimary" className={classes.name}>
-          فرشید کرمی
+          {name}
         </Typography>
         <IconButton className={classes.notificationButton}>
           <Badge

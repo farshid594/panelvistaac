@@ -4,17 +4,23 @@ import RTL from './components/RTL'
 import ThemeProvider from './components/ThemeProvider'
 import MasterLayout from './screens/MasterLayout'
 import LoginContextProvider from './contexts/LoginContext'
+import AlertProvider from './components/Alert'
+import FetchContextProvider from './contexts/FetchContext'
 
 function App() {
   return (
-    <LoginContextProvider>
-      <ThemeProvider>
-        <RTL>
-          <CssBaseline />
-          <MasterLayout />
-        </RTL>
-      </ThemeProvider>
-    </LoginContextProvider>
+    <ThemeProvider>
+      <RTL>
+        <AlertProvider>
+          <FetchContextProvider>
+            <LoginContextProvider>
+              <CssBaseline />
+              <MasterLayout />
+            </LoginContextProvider>
+          </FetchContextProvider>
+        </AlertProvider>
+      </RTL>
+    </ThemeProvider>
   )
 }
 

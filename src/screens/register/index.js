@@ -1,8 +1,12 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import { Button, Grid, LinearProgress, TextField, Typography } from '@material-ui/core'
 import useStyles from './styles/index.styles'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import axios from 'axios'
+import Apis from '../../constants/Apis'
+// import { fetchPost } from '../../config/FetchMethods'
+import { FetchContext } from '../../contexts/FetchContext'
+import { AlertContext } from '../../components/Alert'
 
 export default function Index() {
     const classes = useStyles()
@@ -12,6 +16,9 @@ export default function Index() {
     const [password, setPassword] = useState("")
     const [passwordStrong, setPasswordStrong] = useState(0)
     const [btnDisabled, setBtnDisabled] = useState(true)
+    let { fetchPost } = useContext(FetchContext)
+    let { showSuccesAlert } = useContext(AlertContext)
+    let history = useHistory()
 
     useEffect(() => {
         if (name != "" && password != "" && mobile != "") {
@@ -43,63 +50,18 @@ export default function Index() {
     }
 
     const Register = async () => {
-        var status
-        // const response =await fetch("http://localhost:8000/user/signup", {
-        //     method: "POST",
-        //     headers: {
-        //         "Content-Type": "application/json"
-        //     },
-        //     body: JSON.stringify({
-        //         "mobile": mobile,
-        //         "password": password,
-        //         "name": name
-        //     })
-        // })
-        // var status = response.status
-        // var responsJson = await response.json()
-
-
-        fetch("http://localhost:8000/user/signup", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                "mobile": mobile,
-                "password": password,
-                "name": name
-            })
-        }).then(response => {
-            status = response.status
-            return response.json()
-        }).then(responsJson => {
-            console.log(responsJson, status)
-        }).catch((e) => {
-            console.log("error")
+        fetchPost(Apis.REGISTER, {}, {
+            "mobile": mobile,
+            "password": password,
+            "name": name
+        }).then(({ status, data }) => {
+            if (status === 201) {
+                showSuccesAlert("ثبت شما با موفقیت انجام شد")
+                setTimeout(() => {
+                    history.push('/')
+                }, 3000)
+            }
         })
-
-
-        axios({
-            url: "http://localhost:8000/user/signup",
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            data: {
-                "mobile": mobile,
-                "password": password,
-                "name": name
-            },
-            timeout: 3000,
-            timeoutErrorMessage: ""
-        }).then(response => {
-            console.log(response.status)
-            console.log(response.data)
-        }).catch((e) => {
-            console.log(e.response.status)
-            console.log(e.response.data)
-        })
-
     }
 
     return (
