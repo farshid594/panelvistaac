@@ -48,6 +48,90 @@ export default function MenuItems() {
               </Typography>
             </ListItemText>
           </ListItem>
+
+          <ListItem
+            button
+            component={Link}
+            to="/camera"
+            style={{ marginTop: 10 }}
+          >
+            <ListItemIcon>
+              <img
+                src={path === '/camera' ? activeMenu : inActiveMenu}
+                alt="harfineh"
+                className={
+                  path === '/camera'
+                    ? classes.ActiveMenuIcon
+                    : classes.inActiveMenuIcon
+                }
+              />
+            </ListItemIcon>
+            <ListItemText>
+              <Typography
+                variant="body2"
+                color={path === '/camera' ? 'textPrimary' : 'textSecondary'}
+                className={classes.menuText}
+              >
+                دوربین
+              </Typography>
+            </ListItemText>
+          </ListItem>
+          <ListItem
+            button
+            component={Link}
+            to="/location"
+            style={{ marginTop: 10 }}
+          >
+            <ListItemIcon>
+              <img
+                src={path === '/location' ? activeMenu : inActiveMenu}
+                alt="harfineh"
+                className={
+                  path === '/location'
+                    ? classes.ActiveMenuIcon
+                    : classes.inActiveMenuIcon
+                }
+              />
+            </ListItemIcon>
+            <ListItemText>
+              <Typography
+                variant="body2"
+                color={path === '/location' ? 'textPrimary' : 'textSecondary'}
+                className={classes.menuText}
+              >
+                نقشه
+              </Typography>
+            </ListItemText>
+          </ListItem>
+
+          <ListItem
+            button
+            component={Link}
+            to="/notif"
+            style={{ marginTop: 10 }}
+          >
+            <ListItemIcon>
+              <img
+                src={path === '/notif' ? activeMenu : inActiveMenu}
+                alt="harfineh"
+                className={
+                  path === '/notif'
+                    ? classes.ActiveMenuIcon
+                    : classes.inActiveMenuIcon
+                }
+              />
+            </ListItemIcon>
+            <ListItemText>
+              <Typography
+                variant="body2"
+                color={path === '/notif' ? 'textPrimary' : 'textSecondary'}
+                className={classes.menuText}
+              >
+                نوتیفیکیشن
+              </Typography>
+            </ListItemText>
+          </ListItem>
+
           <ListItem
             button
             component={Link}
@@ -99,6 +183,32 @@ export default function MenuItems() {
                 className={classes.menuText}
               >
                 آپلود پروفایل
+              </Typography>
+            </ListItemText>
+          </ListItem>
+          <ListItem
+            button
+            component={Link}
+            to="/idb"
+            style={{ marginTop: 10 }}
+          >
+            <ListItemIcon>
+              <img
+                src={path === '/idb' ? activeMenu : inActiveMenu}
+                className={
+                  path === '/idb'
+                    ? classes.ActiveMenuIcon
+                    : classes.inActiveMenuIcon
+                }
+              />
+            </ListItemIcon>
+            <ListItemText>
+              <Typography
+                variant="body2"
+                color={path === '/idb' ? 'textPrimary' : 'textSecondary'}
+                className={classes.menuText}
+              >
+                indexdb
               </Typography>
             </ListItemText>
           </ListItem>

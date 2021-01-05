@@ -9,13 +9,13 @@ import LoginRoutes from '../routes/LoginRoutes'
 export default function MasterLayout() {
   let { isLoggedIn } = useContext(LoginContext)
   const classes = useStyles()
-  if (!isLoggedIn) {
-    return (
-      <Router>
-        <LoginRoutes />
-      </Router>
-    )
-  }
+  // if (!isLoggedIn) {
+  //   return (
+  //     <Router>
+  //       <LoginRoutes />
+  //     </Router>
+  //   )
+  // }
   return (
     <Router>
       <div className={classes.root}>

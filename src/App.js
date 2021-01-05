@@ -16,6 +16,7 @@ function App() {
             <LoginContextProvider>
               <CssBaseline />
               <MasterLayout />
+                react
             </LoginContextProvider>
           </FetchContextProvider>
         </AlertProvider>

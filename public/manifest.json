@@ -1,6 +1,7 @@
 {
-  "short_name": "کفش",
-  "name": "فروشگاه آنلاین کفش",
+  "version":"0.1",
+  "short_name": "ویستا",
+  "name": "گروه آموزشی ویستا",
   "icons": [
     {
       "src": "logo64.png",
